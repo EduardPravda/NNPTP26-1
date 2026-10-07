@@ -11,6 +11,12 @@ namespace NNPTPZ1.Mathematics
         public double Real { get; set; }
         public double Imaginary { get; set; }
 
+        public readonly static ComplexNumber Zero = new ComplexNumber()
+        {
+            Real = 0,
+            Imaginary = 0
+        };
+
         public override bool Equals(object obj)
         {
             if (obj is ComplexNumber)
@@ -25,12 +31,6 @@ namespace NNPTPZ1.Mathematics
         {
             return (Real, Imaginary).GetHashCode();
         }
-
-        public readonly static ComplexNumber Zero = new ComplexNumber()
-        {
-            Real = 0,
-            Imaginary = 0
-        };
 
         public ComplexNumber Multiply(ComplexNumber otherNumber)
         {
@@ -56,7 +56,7 @@ namespace NNPTPZ1.Mathematics
                 Imaginary = a.Imaginary + otherNumber.Imaginary
             };
         }
-        public double GetAngleInDegrees()
+        public double GetAngleInRadians()
         {
             return Math.Atan(Imaginary / Real);
         }
